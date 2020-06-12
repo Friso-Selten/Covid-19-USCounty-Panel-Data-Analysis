@@ -1,0 +1,18 @@
+clear
+import delimited "<path to data file here>”
+gen loginfected = log(1 + infected)
+xtset fips differencet
+xtsum
+xtreg loginfected home gatherings50 gatherings500 schools restaurant entertainment, vce(robust)
+xtreg loginfected home gatherings50 gatherings500 schools restaurant entertainment pp_density hh_income ageabove65 tempapr, vce(robust)
+xtabond loginfected home gatherings50 gatherings500 schools restaurant entertainment, vce(robust)
+
+
+clear
+import delimited "<path to data file here>”
+gen loginfected = log(1 + infected)
+xtset fips difference
+xtsum
+xtreg loginfected home gatherings50 gatherings500 schools restaurant entertainment, vce(robust)
+xtreg loginfected home gatherings50 gatherings500 schools restaurant entertainment pp_density hh_income ageabove65 tempapr, vce(robust)
+xtabond loginfected home gatherings50 gatherings500 schools restaurant entertainment, vce(robust)
